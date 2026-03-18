@@ -1,72 +1,80 @@
-// Landing Page Logic
-const landing = document.getElementById('landing');
-const enterBtn = document.getElementById('enter-portfolio');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize AOS (Animations)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false,
+            offset: 50
+        });
+    }
 
-if (enterBtn) {
-    enterBtn.addEventListener('click', () => {
-        landing.classList.add('hidden');
-        document.body.style.overflowY = 'auto'; // Re-enable scroll
-        setTimeout(() => {
-            landing.style.display = 'none';
-        }, 800);
-    });
-}
+    // 2. Landing Page Logic
+    const landing = document.getElementById('landing');
+    const enterBtn = document.getElementById('enter-portfolio');
+    
+    if (enterBtn && landing) {
+        enterBtn.addEventListener('click', () => {
+            landing.style.opacity = '0';
+            landing.style.transform = 'scale(1.1)';
+            landing.style.pointerEvents = 'none';
+            document.body.style.overflow = 'auto';
+            
+            setTimeout(() => {
+                landing.remove();
+                // Trigger AOS again after landing is gone to ensure smooth entrance
+                AOS.refresh();
+            }, 800);
+        });
+    }
 
-// Initially disable scroll for landing
-if (landing && !landing.classList.contains('hidden')) {
-    document.body.style.overflowY = 'hidden';
-}
-
-// Theme Toggle Logic
-const themeToggleButton = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme') || 'light';
-
-if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    if (themeToggleButton) themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-}
-
-if (themeToggleButton) {
-    themeToggleButton.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            themeToggleButton.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            themeToggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+    // 3. Theme Toggle Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const root = document.documentElement;
+    const themeIcon = themeBtn?.querySelector('i');
+    
+    const setTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('portfolio-theme', theme);
+        if (themeIcon) {
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
-    });
-}
+    };
 
-// Scroll Reveal
-const reveal = () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const revealTop = el.getBoundingClientRect().top;
-        const revealPoint = 150;
-        if (revealTop < windowHeight - revealPoint) {
-            el.classList.add('active');
-        }
-    });
-};
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+    setTheme(savedTheme);
 
-window.addEventListener('scroll', reveal);
-reveal(); // Initial call
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    }
 
-// Smooth scroll adjustments for fixed header
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 70, // Offset for sticky nav
-                behavior: 'smooth'
-            });
-        }
+    // 4. Smooth Scrolling for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Auto-close mobile menu
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            }
+        });
     });
+
 });

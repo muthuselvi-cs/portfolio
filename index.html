@@ -1,125 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muthu Selvi | Aspiring Python Developer</title>
-    <!-- SEO & ATS -->
-    <meta name="description" content="Portfolio of Muthu Selvi, an Aspiring Python Developer and B.Sc Computer Science student specializing in Flask and Web Development.">
-    <meta name="keywords" content="Python Developer, Flask, MySQL, Web Development, Muthu Selvi, Computer Science Student">
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/profile.png">
+
+    <!-- SEO & ATS Friendly -->
+    <meta name="description"
+        content="Portfolio of Muthu Selvi, an Aspiring Python Developer specializing in Flask and Web Development.">
+    <meta name="keywords" content="Python Developer, Flask, MySQL, Web Development, Muthu Selvi, B.Sc Computer Science">
+    <meta name="author" content="Muthu Selvi">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="100">
 
-    <!-- Landing Page Overlay -->
-    <section id="landing">
-        <div class="landing-content">
-            <h1>Muthu Selvi</h1>
-            <p class="lead mb-4">Aspiring Software Developer / Python Developer</p>
-            <button id="enter-portfolio" class="btn btn-outline-light btn-lg px-5">Enter Portfolio</button>
+    <!-- Landing Overlay -->
+    <div id="landing" class="landing-overlay">
+        <div class="container text-center text-white">
+            <div class="profile-img-container mb-4" data-aos="zoom-in">
+                <img src="assets/profile.png" alt="Muthu Selvi" class="rounded-circle profile-img shadow-lg">
+            </div>
+            <h1 class="display-1 fw-800 mb-2" data-aos="fade-up" data-aos-delay="200">Muthu Selvi</h1>
+            <p class="lead mb-5 fs-3" data-aos="fade-up" data-aos-delay="400">Aspiring <span
+                    class="text-gradient">Python Developer</span></p>
+            <button id="enter-portfolio" class="btn btn-primary btn-lg px-5 py-3 rounded-pill glass-button shadow">
+                Enter Portfolio <i class="fas fa-arrow-down ms-2"></i>
+            </button>
         </div>
-    </section>
+    </div>
 
-    <!-- Sticky Navbar -->
-    <nav id="navbar-main" class="navbar navbar-expand-lg sticky-top">
+    <!-- Theme Toggle Fixed -->
+    <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="navbar-main" class="navbar navbar-expand-lg sticky-top glass-nav">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">MS.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold fs-3" href="#">MS<span class="text-gradient">.</span></a>
+
+            <button class="navbar-toggler border-0 p-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <div id="theme-toggle" class="nav-link"><i class="fas fa-moon"></i></div>
+                    <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-primary rounded-pill px-3 ms-1"
+                            href="resume.pdf" target="_blank"><i class="fas fa-download me-1"></i>Resume</a></li>
+                    <li class="nav-item ms-lg-3 d-flex gap-3 social-links">
+                        <a href="https://github.com/muthuselvi-cs" target="_blank" class="nav-link p-0 social-btn"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/muthu-selvi-m-aa810a297" target="_blank"
+                            class="nav-link p-0 social-btn"><i class="fab fa-linkedin"></i></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 reveal">
-                    <h2 class="display-4 fw-bold">Hi, I'm <span class="text-primary">Muthu Selvi</span></h2>
-                    <p class="fs-4 mt-3">Passionate about building real-world applications using <span class="fw-bold">Python</span> and <span class="fw-bold">Web Technologies</span>.</p>
-                    <div class="mt-4">
-                        <a href="#projects" class="btn btn-primary btn-lg me-3">View Projects</a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg">Contact Me</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="bg-light-subtle py-5">
+    <main id="main-content">
+        <!-- Home -->
+        <section id="home" class="hero-section d-flex align-items-center min-vh-100">
             <div class="container">
-                <h2 class="section-title reveal">About Me</h2>
-                <div class="row g-4 reveal">
-                    <div class="col-md-8">
-                        <p>I am a <span class="fw-bold">B.Sc Computer Science student</span> with a strong interest in software development and problem solving. I love exploring new technologies and applying them to solve real-world problems. My academic background has provided me with a solid foundation in computer science principles, with a current CGPA of <span class="fw-bold">7.25</span>.</p>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="open-to-work-badge mb-3"><span class="badge-dot"></span> Open to Work</div>
+                        <h5 class="text-primary fw-bold mb-3">Hi there! 👋</h5>
+                        <h2 class="display-2 fw-800 mb-4">I'm <span class="text-gradient">Muthu Selvi</span></h2>
+                        <p class="fs-4 text-muted mb-5">A passionate programmer building robust and scalable web
+                            applications. Specializing in <span class="fw-600 text-primary">Python</span>, <span
+                                class="fw-600 text-primary">Flask</span>, and <span class="fw-600 text-primary">Backend
+                                Development</span>.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#projects" class="btn btn-primary btn-lg rounded-pill">Explore My Work</a>
+                            <a href="#contact" class="btn btn-outline-primary btn-lg rounded-pill border-2 px-4">Get In
+                                Touch</a>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 shadow-sm">
-                            <h4 class="mb-3">Core Skills</h4>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge bg-primary">Python</span>
-                                <span class="badge bg-primary">Flask</span>
-                                <span class="badge bg-primary">MySQL</span>
-                                <span class="badge bg-info text-dark">HTML5</span>
-                                <span class="badge bg-info text-dark">CSS3</span>
-                                <span class="badge bg-info text-dark">JavaScript</span>
-                                <span class="badge bg-secondary">GitHub</span>
-                            </div>
+                    <div class="col-lg-5 text-center" data-aos="fade-left">
+                        <div class="hero-card glass-card p-5">
+                            <i class="fab fa-python display-1 text-gradient mb-4"></i>
+                            <h3 class="fw-bold">Backend Focused</h3>
+                            <p class="text-muted">Turning logic into digital reality with efficient database management
+                                and clean code.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Resume Section -->
-        <section id="resume" class="container text-center py-5">
-            <div class="reveal">
-                <h2 class="section-title d-inline-block">Resume</h2>
-                <p class="mt-3">Download my professional resume for more details about my experience and academic journey.</p>
-                <!-- Placeholder PDF link -->
-                <a href="#" class="btn btn-primary btn-lg px-5 mt-3"><i class="fas fa-download me-2"></i> Download Resume (PDF)</a>
+        <!-- About -->
+        <section id="about" class="bg-soft">
+            <div class="container">
+                <div class="section-header text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-800">About <span class="text-gradient">Me</span></h2>
+                    <div class="header-line mx-auto"></div>
+                </div>
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-5" data-aos="fade-right">
+                        <div class="glass-card p-2 overflow-hidden">
+                            <img src="assets/profile.png" alt="Muthu Selvi" class="img-fluid rounded-4">
+                        </div>
+                    </div>
+                    <div class="col-md-7" data-aos="fade-left">
+                        <p class="fs-5 mb-4">I am a <span class="fw-bold">B.Sc Computer Science</span> Graduate with a
+                            sharp focus on becoming a proficient Python Developer. I thrive on solving complex puzzles
+                            and building seamless user experiences.</p>
+                        <h4 class="fw-bold mb-3">My Expertise</h4>
+                        <div class="skills-grid justify-content-start">
+                            <span class="badge skill-badge"><i class="fab fa-python me-2"></i>Python</span>
+                            <span class="badge skill-badge"><i class="fas fa-flask me-2"></i>Flask</span>
+                            <span class="badge skill-badge"><i class="fas fa-database me-2"></i>MySQL</span>
+                            <span class="badge skill-badge"><i class="fab fa-html5 me-2"></i>HTML5</span>
+                            <span class="badge skill-badge"><i class="fab fa-css3-alt me-2"></i>CSS3</span>
+                            <span class="badge skill-badge"><i class="fab fa-js-square me-2"></i>JavaScript</span>
+                            <span class="badge skill-badge"><i class="fab fa-bootstrap me-2"></i>Bootstrap 5</span>
+                            <span class="badge skill-badge"><i class="fab fa-git-alt me-2"></i>Git & GitHub</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="bg-light-subtle py-5">
+        <!-- Stats -->
+        <section id="stats" class="py-4 bg-soft">
             <div class="container">
-                <h2 class="section-title reveal">Projects</h2>
-                <div class="row g-4 reveal">
-                    <div class="col-md-6 mx-auto">
-                        <div class="card h-100 shadow-sm border-0">
+                <div class="row justify-content-center text-center g-4" data-aos="fade-up">
+                    <div class="col-6 col-md-3">
+                        <div class="glass-card p-4">
+                            <h3 class="fw-800 text-gradient mb-1">1+</h3>
+                            <p class="text-muted small mb-0">Projects Built</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="glass-card p-4">
+                            <h3 class="fw-800 text-gradient mb-1">8+</h3>
+                            <p class="text-muted small mb-0">Technologies</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="glass-card p-4">
+                            <h3 class="fw-800 text-gradient mb-1">7.25</h3>
+                            <p class="text-muted small mb-0">CGPA</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="glass-card p-4">
+                            <h3 class="fw-800 text-gradient mb-1">2026</h3>
+                            <p class="text-muted small mb-0">Available From</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume -->
+        <section id="resume">
+            <div class="container">
+                <div class="section-header text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-800">My <span class="text-gradient">Journey</span></h2>
+                    <div class="header-line mx-auto"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8" data-aos="fade-up">
+                        <div class="timeline-item glass-card p-4 mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-800 mb-0">B.Sc Computer Science</h4>
+                                <span class="badge bg-primary rounded-pill px-3">7.25 CGPA</span>
+                            </div>
+                            <p class="text-primary fw-600 mb-2">Graduation / Academic Foundation</p>
+                            <p class="text-muted mb-0">Deepening knowledge in data structures, algorithms, and software
+                                engineering principles while maintaining a strong academic record.</p>
+                        </div>
+                        <div class="text-center mt-5">
+                            <a href="resume.pdf" class="btn btn-primary btn-lg rounded-pill px-5 shadow">
+                                <i class="fas fa-download me-2"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="bg-soft">
+            <div class="container">
+                <div class="section-header text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-800">Latest <span class="text-gradient">Projects</span></h2>
+                    <div class="header-line mx-auto"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5" data-aos="fade-up">
+                        <div class="card project-card glass-card h-100 overflow-hidden">
+                            <div class="project-img-wrapper">
+                                <i class="fas fa-laptop-code display-1 text-white opacity-50"></i>
+                            </div>
                             <div class="card-body p-4">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <h3 class="card-title h4 fw-bold">Smart Online Exam System</h3>
-                                    <i class="fab fa-python fs-2 text-primary"></i>
+                                <h3 class="fw-800 h4 mb-3">Smart Online Exam System</h3>
+                                <p class="text-muted mb-4">A secure, automated examination platform featuring real-time
+                                    timers and instant results calculation.</p>
+                                <div class="d-flex gap-2 mb-4">
+                                    <span class="badge bg-light text-primary border px-3"><i
+                                            class="fas fa-flask me-1"></i>Flask</span>
+                                    <span class="badge bg-light text-primary border px-3"><i
+                                            class="fas fa-database me-1"></i>MySQL</span>
+                                    <span class="badge bg-light text-primary border px-3"><i
+                                            class="fab fa-python me-1"></i>Python</span>
                                 </div>
-                                <p class="card-text">A comprehensive examination platform built with <span class="fw-bold">Flask</span> and <span class="fw-bold">MySQL</span>. Features include user authentication, a timer-based exam interface, and automatic submission logic.</p>
-                                <div class="mt-4">
-                                    <span class="text-muted small me-3"><i class="fas fa-code me-1"></i> Flask / Python</span>
-                                    <span class="text-muted small"><i class="fas fa-database me-1"></i> MySQL</span>
+                                <div class="d-grid gap-2">
+                                    <a href="https://github.com/muthuselvi-cs"
+                                        class="btn btn-outline-primary rounded-pill" target="_blank">
+                                        <i class="fab fa-github me-2"></i> View Code
+                                    </a>
+                                    <a href="#" class="btn btn-primary rounded-pill" target="_blank">
+                                        <i class="fas fa-external-link-alt me-2"></i> Live Demo
+                                    </a>
                                 </div>
-                                <a href="https://github.com/muthuselvi-cs" class="btn btn-link p-0 mt-3 text-decoration-none fw-bold" target="_blank">View on GitHub <i class="fas fa-arrow-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
@@ -127,36 +244,35 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="container py-5">
-            <h2 class="section-title reveal">Contact</h2>
-            <div class="row g-5 mt-2 reveal">
-                <div class="col-md-6">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="bg-primary text-white rounded-circle p-3 me-3" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
-                            <i class="fas fa-envelope fs-4"></i>
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Email</h5>
-                            <p class="mb-0">[Your Email Address]</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="bg-primary text-white rounded-circle p-3 me-3" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
-                            <i class="fas fa-phone fs-4"></i>
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Phone</h5>
-                            <p class="mb-0">[Your Phone Number]</p>
-                        </div>
-                    </div>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-800">Let's <span class="text-gradient">Connect</span></h2>
+                    <div class="header-line mx-auto"></div>
                 </div>
-                <div class="col-md-6">
-                    <div class="glass p-4 rounded-4 h-100 d-flex flex-column justify-content-center">
-                        <h4 class="mb-4">Connect with me</h4>
-                        <div class="d-flex gap-4">
-                            <a href="https://github.com/muthuselvi-cs" class="fs-1 text-primary" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/muthu-selvi-m-aa810a297" class="fs-1 text-primary" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <div class="row justify-content-center" data-aos="fade-up">
+                    <div class="col-lg-8 text-center">
+                        <div class="glass-card p-5">
+                            <h4 class="fw-800 mb-4">Interested in working together?</h4>
+                            <p class="text-muted mb-5 fs-5">I'm currently looking for new opportunities as a Python
+                                Developer. Feel free to reach out for collaborations or just a friendly hello!</p>
+
+                            <a href="mailto:muthuselvi.mundasamy@gmail.com?subject=Hiring Opportunity&body=Hello Muthu Selvi,%0A%0AI came across your portfolio and would like to connect with you."
+                                class="btn btn-primary btn-lg rounded-pill px-5 py-3 mb-5 shadow">
+                                <i class="fas fa-envelope me-2"></i> Email Me
+                            </a>
+
+                            <div class="d-flex justify-content-center gap-4 mt-4">
+                                <a href="https://github.com/muthuselvi-cs" class="social-btn" target="_blank"
+                                    aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/muthu-selvi-m-aa810a297" class="social-btn"
+                                    target="_blank" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,14 +280,16 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="py-5 bg-soft text-center border-top">
         <div class="container">
-            <p class="mb-0">© 2026 Muthu Selvi. All Rights Reserved.</p>
+            <h5 class="fw-800 mb-3">MS<span class="text-gradient">.</span></h5>
+            <p class="text-muted small mb-0">&copy; 2026 Muthu Selvi. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
